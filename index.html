@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMIU Student Management System</title>
+  <meta name="description" content="Student Management System deployed using GitHub Pages">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div>
+        <h1>Student Management System</h1>
+        <p>GMIU Cloud Service Deployment Practical</p>
+      </div>
+      <a class="github-link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">GitHub Pages</span>
+        <h2>Student Records</h2>
+        <p>Manage student records directly in the browser. Data is stored in this browser using localStorage.</p>
+      </div>
+      <button id="addBtn" class="btn primary">+ Add Student</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>Total Students</span><strong id="totalStudents">0</strong></div>
+      <div class="stat"><span>Computer Engineering</span><strong id="ceStudents">0</strong></div>
+      <div class="stat"><span>Latest Record</span><strong id="latestStudent">—</strong></div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search by name, enrollment, email or course">
+        <button id="clearBtn" class="btn danger-outline">Clear All</button>
+      </div>
+
+      <div id="message" class="message hidden"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Enrollment</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Semester</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty">No student records found. Click <b>Add Student</b> to create one.</div>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h3>Cloud Platform</h3>
+        <p>GitHub Pages</p>
+      </div>
+      <div class="info-card">
+        <h3>Frontend</h3>
+        <p>HTML, CSS, JavaScript</p>
+      </div>
+      <div class="info-card">
+        <h3>Data Storage</h3>
+        <p>Browser localStorage</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">Add Student</h2>
+        <button id="closeModal" class="close">×</button>
+      </div>
+
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+
+        <label>Enrollment Number
+          <input id="enrollmentNo" required maxlength="30">
+        </label>
+
+        <label>Student Name
+          <input id="name" required maxlength="100">
+        </label>
+
+        <label>Email
+          <input id="email" type="email" required maxlength="100">
+        </label>
+
+        <label>Course
+          <input id="course" value="Computer Engineering" required maxlength="100">
+        </label>
+
+        <label>Semester
+          <select id="semester" required>
+            <option value="">Select Semester</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+        </label>
+
+        <label>Phone
+          <input id="phone" maxlength="15" inputmode="numeric">
+        </label>
+
+        <div class="form-actions">
+          <button type="button" id="cancelBtn" class="btn secondary">Cancel</button>
+          <button type="submit" class="btn primary">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>GMIU Cloud Service Deployment Practical • GitHub Pages Version</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
